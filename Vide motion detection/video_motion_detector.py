@@ -33,6 +33,8 @@ while True:
     status_list.append(status)
     if (status_list[-1]==0 and status_list[-2]==1) or (status_list[-1]==1 and status_list[-2]==0):
         times.append(datetime.now())
+        (x,y,w,h)=cv2.boundingRect(contour)
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 5)
 
     cv2.imshow("Capturing", threshold_delta)
     cv2.imshow("Capturing_delta",delta_frame)
